@@ -1,0 +1,131 @@
+@import './base.css';
+
+#app {
+  position      : absolute;
+  top           : 0;
+  width         : 100%;
+  margin        : 0 auto;
+  padding       : 2rem;
+  font-weight   : normal;
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color          : hsla(160, 100%, 37%, 1);
+  transition     : 0.4s;
+  padding        : 3px;
+}
+
+.subtitulo {
+  color        : #fff;
+  font-size    : 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-card {
+  width           : 30rem;
+  border-radius   : 0.9rem;
+  padding         : 1.8rem;
+  margin          : 1rem;
+  border          : 0.05rem solid #ccc;
+  background-color: #2e444c;
+  box-shadow      : 0.12rem 0.12rem 0.6rem 0.12rem rgb(155, 155, 155);
+}
+
+.post-btn {
+  position         : relative;
+  display          : inline-flex;
+  align-items      : center;
+  justify-content  : center;
+  padding          : 8px 16px;
+  font-size        : 16px;
+  font-weight      : 500;
+  cursor           : pointer;
+  transition       : all 0.3s ease;
+  color            : #ffffff;
+  border           : 1px solid black 4px;
+  border-radius    : 4px;
+  background-image : linear-gradient(135deg, #3b82f6, #3a2274);
+  box-shadow       : 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  text-shadow      : 0px 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-animation: float 3s ease-in-out infinite;
+  animation        : float 3s ease-in-out infinite;
+}
+
+.post-btn:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 17px rgba(59, 130, 246, 0.5);
+}
+
+.containerButton {
+  width          : 100%;
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items    : center;
+}
+
+.numberCount {
+  font-size  : 80px;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px white;
+}
+
+.btn-Duo {
+  display        : flex;
+  justify-content: center;
+  gap            : 25px;
+}
+
+.reset {
+  background-image: linear-gradient(45deg,
+      #f63b73,
+      #742222);
+}
+
+.reset:hover {
+  box-shadow: 0 0 17px rgba(246, 59, 68, 0.5);
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (hover: hover) {
+  a:hover {
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(2, 243, 163, 0.788);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display    : flex;
+    place-items: center;
+    height     : 100vh;
+    width      : 100vw;
+    margin     : 0 auto;
+  }
+
+        /* #app {
+display              : grid;
+grid-template-columns: auto auto;
+padding              : 0 2rem;
+margin               : 0 auto;
+width                : 100%;
+  } */
+}

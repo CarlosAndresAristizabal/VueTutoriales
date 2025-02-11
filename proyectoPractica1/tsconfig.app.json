@@ -1,0 +1,21 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+
+  "include":
+  [ "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/views/CounterCompositions.vue",
+    "src/components/CounterOption.vue",
+    "src/views/ListTeachers.vue",
+    "../recsrc/views/PostButton.vue/recuperacion/PostCardsrc/views/PostCard.vueContsrc/views/PostContainer.vueCardsrc/views/UserCard.vues/UsersApis.vue"],
+  "exclude":
+  ["src/**/__tests__/*"] ,
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    "paths": {
+      "@/*": ["./src/*"],
+    }
+  }
+}
