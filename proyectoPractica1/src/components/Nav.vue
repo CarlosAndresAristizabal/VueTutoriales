@@ -5,7 +5,8 @@
     <RouterLink :to = "{ name: 'CounterOption' }">Counter Option</RouterLink>
     <RouterLink :to = "{ name: 'ListTeachers' }">List Teachers</RouterLink>
     <RouterLink :to = "{ name: 'PostCard' }">Post Card</RouterLink>
-    <RouterLink :to = "{ name: 'UsersAPIS' }">Users API´S</RouterLink>
+   <RouterLink :to = "{ name: 'UsersApis_OptionsAPI' }">Users API´S Options API</RouterLink>
+    <RouterLink :to = "{ name: 'UsersApis_CompositionAPI' }">Users API´S Composition API</RouterLink>
     <RouterLink :to = "{ name: 'CounterCompositions' }"> Counter Compositions</RouterLink>
   </nav>
 </template>

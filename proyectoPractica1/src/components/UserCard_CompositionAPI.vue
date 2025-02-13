@@ -1,6 +1,6 @@
 <template>
-  <RouterLink :to   = "`/UserApisId/` + id">
-  <div        class = "post-card containerUsersWidth">
+  <RouterLink :to="`UserApisId_CompositionAPI/` + props.id">
+  <div class = "post-card containerUsersWidth">
       <p>Name    : {{ name }}</p>
       <p>UserName: {{ username }}</p>
       <p>Email   : {{ email }}</p>
@@ -8,12 +8,10 @@
   </RouterLink>
 </template>
 
-<script lang = "ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import { defineProps } from 'vue';
 
-export default defineComponent({
-  name : 'UserCard',
-  props: {
+const props = defineProps({
     id: {
       type    : Number,
       required: true,
@@ -30,8 +28,7 @@ export default defineComponent({
       type    : String,
       required: true,
     },
-  },
-})
+  })
 </script>
 
 <style scoped>

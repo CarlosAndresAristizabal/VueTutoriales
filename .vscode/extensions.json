@@ -1,9 +1,5 @@
 {
-	"recommendations": [
-		"zignd.html-css-class-completion",
-		"oderwat.indent-rainbow",
-		"anteprimorac.html-end-tag-labels",
-		"agutierrezr.vscode-essentials",
-		"vimlesai.front-end-ext-pack"
-	]
+    "recommendations": [
+        "sdras.vue-vscode-snippets"
+    ]
 }

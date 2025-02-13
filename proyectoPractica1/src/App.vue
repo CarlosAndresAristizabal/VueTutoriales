@@ -1,9 +1,9 @@
 <template>
   <main>
     <header>
-      <img alt= "Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-      <div class = "wrapper">
-      <HelloWorld msg= "You did it!" />
+      <img alt = "Vue logo" class = "logo" src = "@/assets/logo.svg" width = "125" height = "125" />
+      <div        class = "wrapper">
+      <HelloWorld msg   = "You did it!" />
         <Nav />
       </div>
     </header>
@@ -14,7 +14,7 @@
 <script lang = "ts">
 import { defineComponent } from 'vue';
 import  HelloWorld  from './components/HelloWorld.vue'
-import Nav from './views/Nav.vue'
+import Nav from './components/Nav.vue'
 export default defineComponent({
   name      : 'App',
   components: {

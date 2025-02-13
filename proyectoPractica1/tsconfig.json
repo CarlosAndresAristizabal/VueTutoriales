@@ -1,7 +1,7 @@
 {
-  "files": [],
+  "files"          : [],
   "compilerOptions": { "strict": true },
-  "references": [
+  "references"     : [
     {
       "path": "./tsconfig.node.json"
     },

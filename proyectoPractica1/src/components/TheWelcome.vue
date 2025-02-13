@@ -7,7 +7,9 @@ import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
 import CardIcon from './icons/IconCard.vue'
 import CardPostIcon from './icons/IconPostCard.vue'
+import IconApis from './icons/IconApis.vue'
 import { defineComponent } from 'vue'
+
 export default defineComponent({
   name      : 'TheWelcome',
   components: {
@@ -19,6 +21,7 @@ export default defineComponent({
     SupportIcon,
     CardIcon,
     CardPostIcon,
+    IconApis,
   },
 })
 </script>
@@ -47,7 +50,7 @@ export default defineComponent({
       <template #icon>
         <CommunityIcon />
       </template>
-      <template #heading>Users API´S</template>
+      <template #heading>Users API´S Compositions</template>
     </WelcomeItem>
     <WelcomeItem>
       <template #icon>
@@ -66,6 +69,12 @@ export default defineComponent({
         <CardPostIcon />
       </template>
       <template #heading>Post Card</template>
+    </WelcomeItem>
+    <WelcomeItem>
+      <template #icon>
+        <IconApis/>
+      </template>
+      <template #heading>Users API´S Options</template>
     </WelcomeItem>
   </div>
 </template>

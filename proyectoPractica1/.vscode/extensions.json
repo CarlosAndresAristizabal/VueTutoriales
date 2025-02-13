@@ -7,6 +7,8 @@
 		"oderwat.indent-rainbow",
 		"anteprimorac.html-end-tag-labels",
 		"agutierrezr.vscode-essentials",
-		"vimlesai.front-end-ext-pack"
+		"vimlesai.front-end-ext-pack",
+        "sdras.vue-vscode-snippets"
+
   ]
 }

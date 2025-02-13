@@ -16,7 +16,7 @@
 
 <script lang = "ts">
 import { defineComponent } from 'vue'
-import PostButton from './PostButton.vue'
+import PostButton from '../components/PostButton.vue'
 
 interface User {
   id      : number
@@ -31,7 +31,7 @@ interface User {
 }
 
 export default defineComponent({
-  name : 'UsersApisId',
+  name : 'UserApisId_OptionsAPI',
   props: {
     id: {
       type    : String,
@@ -46,7 +46,7 @@ export default defineComponent({
   },
   methods: {
     back() {
-      this.$router.push('/UsersAPIS')
+      this.$router.push('/UsersApis_OptionsAPI')
     },
     async fetchUser() {
       try {
@@ -86,11 +86,9 @@ export default defineComponent({
   letter-spacing : 0.01rem;
   font-size      : 0.9rem;
   font-weight    : 900;
-
-  }
-   .Post-button {
+}
+.Post-button {
   animation: none;
   margin   : 0;
 }
-
 </style>

@@ -1,18 +1,19 @@
 <template>
   <div class = "containerUsers" v-if = "users">
-    <UserCard
+    <UserCard_OptionsAPI
         v-for   = "user in users"
       :key      = "user.id"
+      :id       = "user.id"
       :name     = "user.name"
       :username = "user.username"
       :email    = "user.email"
-      :id       = "user.id"
     />
   </div>
 </template>
 <script lang = "ts">
+
 import { defineComponent } from 'vue'
-import UserCard from './UserCard.vue'
+import UserCard_OptionsAPI from '../components/UserCard_OptionsAPI.vue'
 
 interface User {
   id      : number
@@ -22,9 +23,9 @@ interface User {
 }
 
 export default defineComponent({
-  name      : 'UsersApis',
+  name      : 'UsersApis_OptionsAPI',
   components: {
-    UserCard,
+    UserCard_OptionsAPI,
   },
   data() {
     return {
@@ -38,6 +39,7 @@ export default defineComponent({
   },
 })
 </script>
+
 <style scoped>
 .containerUsers {
   display        : flex;

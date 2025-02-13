@@ -12,8 +12,8 @@
 </template>
 
 <script lang = "ts">
-import { defineComponent } from 'vue';
-import PostButton from './PostButton.vue'
+import { defineComponent } from 'vue'
+import PostButton from '../components/PostButton.vue'
 export default defineComponent({
   name      : 'PostCard',
   components: {
@@ -27,5 +27,4 @@ export default defineComponent({
   position: relative;
   margin  : 0 auto;
 }
-
 </style>
