@@ -1,8 +1,8 @@
 <template>
   <main>
-    <div class="containerUsers" v-if="user">
+    <div class="containerUsers" v-if="dataUser">
       <UserCard_CompositionAPI
-        v-for="users in user"
+        v-for="users in dataUser"
         :key="users.id"
         :id="users.id"
         :name="users.name"
@@ -10,33 +10,26 @@
         :email="users.email"
       />
     </div>
-    <div v-else class="containerUsers">Cargando...</div>
+    <div v-else class="containerUsers">Loading Data...</div>
   </main>
 </template>
 
 <script lang="ts" setup>
 import UserCard_CompositionAPI from '@/components/UserCard_CompositionAPI.vue'
 import { onMounted, ref } from 'vue'
+import { service } from '@/services/PostService.ts'
+import type IPersona from '../interfaces/IPersona.ts'
 
-interface User {
-  id: number
-  name: string
-  username: string
-  email: string
-}
+const dataUser = ref<IPersona | null>(null)
 
-const user = ref<User[] | null>(null)
-
-async function fetchUser() {
+onMounted(async () => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users')
-    user.value = (await response.json()) as User[]
+    await service.fetchApi()
+    dataUser.value = service.getData().value
   } catch (error) {
-    console.error('Error fetching user:', error)
+    console.log(error)
   }
-}
-
-onMounted(fetchUser)
+})
 </script>
 
 <style scoped>

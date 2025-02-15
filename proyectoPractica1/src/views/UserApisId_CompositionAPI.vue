@@ -1,16 +1,19 @@
 <template>
   <div class="containerUsers">
     <h1>User Data:</h1>
-    <div v-if="user">
-      <p>Id : {{ user.id }}</p>
-      <p>Name : {{ user.name }}</p>
-      <p>Username: {{ user.username }}</p>
-      <p>Email : {{ user.email }}</p>
-      <p>Phone : {{ user.phone }}</p>
-      <p>City : {{ user.address.city }}</p>
-      <p>Website : {{ user.website }}</p>
+    <div v-if="errorMessage" class="error">
+      {{ errorMessage }}
     </div>
-    <div v-else>Cargando...</div>
+    <div v-if="usersId">
+      <p>Id : {{ usersId.id }}</p>
+      <p>Name : {{ usersId.name }}</p>
+      <p>Username: {{ usersId.username }}</p>
+      <p>Email : {{ usersId.email }}</p>
+      <p>Phone : {{ usersId.phone }}</p>
+      <p>City : {{ usersId.address?.city }}</p>
+      <p>Website : {{ usersId.website }}</p>
+    </div>
+    <div v-else>Loading Data...</div>
     <PostButton text="BACK" @click="handleClickBack" class="Post-button danger" />
   </div>
 </template>
@@ -19,39 +22,38 @@
 import PostButton from '../components/PostButton.vue'
 import { useRouter } from 'vue-router'
 import { defineProps, onMounted, ref } from 'vue'
-interface User {
-  id: number
-  name: string
-  username: string
-  email: string
-  address: {
-    city: string
-  }
-  phone: string
-  website: string
-}
+import { service } from '@/services/PostService'
+import type IPersona from '@/interfaces/IPersona'
 
 const props = defineProps<{
-  id: number | string
+  id: string | number
 }>()
-const user = ref<User | null>(null)
+const usersId = ref<IPersona | null>(null)
 const router = useRouter()
+const errorMessage = ref<string>('')
 
 const handleClickBack = () => {
   router.push('/UsersAPIS_CompositionAPI')
 }
-async function fetchUser() {
+onMounted(async () => {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/` + props.id)
-    user.value = (await response.json()) as User
-    // console.log(user.value)//object complete del user
-    // console.log(user.value.id)//id del user
+    const idNumber = typeof props.id === 'string' ? parseInt(props.id, 10) : props.id
+
+    if (isNaN(idNumber)) {
+      throw new Error('Invalid user ID format')
+    }
+    await service.fetchUserById(idNumber)
+    const userData = service.getCurrentUser().value
+
+    if (!userData) {
+      throw new Error('User not found')
+    }
+    usersId.value = userData
   } catch (error) {
+    errorMessage.value = error instanceof Error ? error.message : 'Failed to load user data'
     console.error('Error fetching user:', error)
   }
-}
-
-onMounted(fetchUser)
+})
 </script>
 
 <style scoped>
@@ -75,5 +77,18 @@ onMounted(fetchUser)
 .Post-button {
   animation: none;
   margin: 0;
+}
+.error {
+  color: #dc3545;
+  padding: 1rem;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.loading {
+  color: #666;
+  font-style: italic;
+  padding: 1rem;
 }
 </style>
