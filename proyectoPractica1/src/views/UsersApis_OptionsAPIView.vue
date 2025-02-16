@@ -20,7 +20,7 @@ import { service } from '@/services/PostService'
 import type IPersona from '@/interfaces/IPersona'
 
 export default defineComponent({
-  name: 'UsersApis_OptionsAPI',
+  name: 'UsersApis_OptionsAPIView',
   components: {
     UserCard_OptionsAPI,
   },
